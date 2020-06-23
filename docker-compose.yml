@@ -2,10 +2,13 @@ version: '3.7'
 
 services:
   web:
-    build: .
-    command: npm start
-    ports:
-      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/app
-      - /app/node_modules #in order to avoid overwriting
+      - /app/node_modules #in order to avoid overwriting    
+    command: npm start
+    stdin_open: true #this was the issue, without it the server immediately shut down 
+    ports:
+      - 3000:3000

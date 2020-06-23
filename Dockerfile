@@ -5,13 +5,13 @@ FROM node:latest
 WORKDIR /app
 
 #COPY DEPENDENCIES
-COPY package.json .
+COPY ["package.json", "package-lock.json*", "./"]
 
 #Install dependencies
-RUN npm i
+RUN npm i --silent
 
 #Copy all other files
-COPY . .
+COPY /src /app/src
 
 #commands for docker
 CMD ["npm", "start"]
