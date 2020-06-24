@@ -12,3 +12,16 @@ services:
     stdin_open: true #this was the issue, without it the server immediately shut down 
     ports:
       - 3000:3000
+  
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules #in order to avoid overwriting   
+    environment: 
+      - CI=true 
+    command: npm test
+  
+      
