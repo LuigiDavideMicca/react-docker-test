@@ -1,16 +1,20 @@
-import React from 'react';
+import React from "react";
 
-const Header = ({name}) => {
-    if(!name) {
-        return (
-            <h5>Sorry, no name found</h5>
-        )
-    }
+const Header = ({ plant, tyres }) => {
+  if (!plant && !tyres) {
     return (
-        <div className="my-5">
-            <h5>Hello {name}</h5>
-        </div>
-    )
-}
+      <h5 className="my-5">
+        Insert the Plant of destination and the number of tyres you wish to
+        order
+      </h5>
+    );
+  }
+  return (
+    <div className="my-5">
+      {plant}
+      {tyres}
+    </div>
+  );
+};
 
 export default Header;

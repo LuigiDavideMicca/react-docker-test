@@ -4,24 +4,30 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.react
     volumes:
       - .:/app
-      - /app/node_modules #in order to avoid overwriting    
+      - /app/node_modules #in order to avoid overwriting
     command: npm start
-    stdin_open: true #this was the issue, without it the server immediately shut down 
+    stdin_open: true #this was the issue, without it the server immediately shut down
     ports:
       - 3000:3000
-  
+
   test:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.react
     volumes:
       - .:/app
-      - /app/node_modules #in order to avoid overwriting   
-    environment: 
-      - CI=true 
+      - /app/node_modules #in order to avoid overwriting
+    environment:
+      - CI=true
     command: npm test
-  
-      
+
+  k6:
+    build: .
+    volumes:
+      - ./k6-tests:/k6-tests
+    ports:
+      - 6565:6565
+    command: version
