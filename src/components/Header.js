@@ -11,8 +11,16 @@ const Header = ({ plant, tyres }) => {
   }
   return (
     <div className="my-5">
-      {plant}
-      {tyres}
+      <div className="card w-50 mx-auto">
+        <div className="card-header">Your Order Details</div>
+        <div className="card-body">
+          <h5 className="card-title">Confirm Your Order Blow:</h5>
+          <p className="card-text">
+            You Ordered n.{tyres} tyres for your plant {plant}
+          </p>
+          <button className="btn btn-primary">CONFIRM YOUR ORDER</button>
+        </div>
+      </div>
     </div>
   );
 };

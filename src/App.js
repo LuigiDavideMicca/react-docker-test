@@ -17,21 +17,14 @@ const App = () => {
     setTires(e.target.value);
   };
 
-  const onFormSubmitTyresPlant = (e) => {
-    e.preventDefault();
-    setPlant(e.target.value);
-    setTires(e.target.value);
-  };
-
   return (
-    <div className="App">
+    <div className="App container">
       <header className="my-5 App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h4>React Starter with Docker Compose</h4>
         <Form
           onPlantChange={onPlantChange}
           onTyreChange={onTyreChange}
-          onFormSubmitTyresPlant={onFormSubmitTyresPlant}
           plant={plant}
           tyres={tyres}
         />

@@ -8,7 +8,7 @@ const Form = ({
   onFormSubmitTyresPlant,
 }) => {
   return (
-    <form onSubmit={onFormSubmitTyresPlant} className="my-5">
+    <form className="my-5">
       <div className="form-group">
         <label>Plant</label>
         <input
@@ -27,9 +27,6 @@ const Form = ({
           className="form-control"
         />
       </div>
-      <button type="submit" className="btn btn-primary my-3 p-3">
-        Submit
-      </button>
     </form>
   );
 };
