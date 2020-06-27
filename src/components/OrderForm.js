@@ -1,12 +1,6 @@
 import React from "react";
 
-const Form = ({
-  plant,
-  tyres,
-  onPlantChange,
-  onTyreChange,
-  onFormSubmitTyresPlant,
-}) => {
+const OrderForm = ({ plant, tyres, onPlantChange, onTyreChange }) => {
   return (
     <form className="my-5">
       <div className="form-group">
@@ -30,4 +24,4 @@ const Form = ({
     </form>
   );
 };
-export default Form;
+export default OrderForm;
